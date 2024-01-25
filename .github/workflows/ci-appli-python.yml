@@ -1,0 +1,33 @@
+name: CI pour Appli Python
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Initialize Python environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create Bundle ZIP
+        uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r bundle.zip .
+
+      - name: Upload bundle 
+        uses: actions/upload-artifact@v4
+        with:
+          name: cours-cicd-python
+          path: ./bundle.zip
