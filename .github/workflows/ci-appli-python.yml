@@ -21,13 +21,13 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Create Bundle ZIP
-        uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r bundle.zip .
+      # - name: Create Bundle ZIP
+      #   uses: montudor/action-zip@v1
+      #   with:
+      #     args: zip -qq -r bundle.zip .
 
       - name: Upload bundle 
         uses: actions/upload-artifact@v4
         with:
           name: cours-cicd-python
-          path: ./bundle.zip
+          path: .
