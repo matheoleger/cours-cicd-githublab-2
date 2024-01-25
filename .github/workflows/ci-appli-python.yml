@@ -29,6 +29,6 @@ jobs:
         with:
           name: cours-cicd-python
           path: | 
+            .
             !./.git*
             !./*.md
-            .
