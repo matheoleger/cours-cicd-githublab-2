@@ -58,10 +58,6 @@ jobs:
       - name: Zip the code for assets
         run: zip -r cours-cicd-python.zip ./build
 
-      - name: version
-        run: echo "::set-output name=version::$(./bin/azblogfilter --version)"
-        id: version
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
